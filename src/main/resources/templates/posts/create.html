@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <link th:replace="fragments/header :: stylingSheets" />
+</head>
+<body>
+<h1 class="createHeading">Create A Post!</h1>
+<form action="/posts/create" th:method="post" th:object="${post}">
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input th:field="*{title}" type="text" class="form-control" id="title" aria-describedby="emailHelp" placeholder="Enter title" />
+    </div>
+    <div class="form-group">
+        <label for="body">Description</label>
+        <input th:field="*{body}" type="text" class="form-control" id="body" placeholder="Enter description" />
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+
+
+
+<div th:replace="fragments/bootstrap :: bootstrapScripts"></div>
+</body>
+</html>

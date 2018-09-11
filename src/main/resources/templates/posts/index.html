@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <link th:replace="fragments/header :: stylingSheets" />
+</head>
+<body>
+    <div th:replace="fragments/navbar :: mainNavbar"></div>
+    <div class="jumbotron jumbotron-fluid" th:fragment="mainHeader">
+        <div class="container">
+            <h1 class="display-4" align="center">Welcome to my blog!</h1>
+            <p align="center" class="lead">The most amazing blog that has ever been shown..</p>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+                <div th:each="post : ${allPosts}" align="center" class="col-lg-4">
+                    <div class="postContainer">
+                        <h1 th:text="${post.title}"></h1>
+                        <p th:text="${post.body}"></p>
+                        <button><a th:href="@{'/posts/' + ${post.id}}">view</a></button>
+                        <button><a th:href="@{'/posts/' + ${post.id}} + '/edit'">Edit</a></button>
+                        <button><a th:href="@{'/posts/delete/' + ${post.id}}">Delete</a></button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+    <div th:replace="fragments/bootstrap :: bootstrapScripts"></div>
+</body>
+</html>

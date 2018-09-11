@@ -1,0 +1,48 @@
+
+.postContainer {
+    padding: 1em;
+    background-color: #dee1e5;
+    width: 90%;
+    margin: 1em auto;
+    box-shadow: 0 .3em .5em black;
+    border-radius: 2em;
+    transition: .8s;
+}
+
+.postContainer:hover {
+    color: white;
+    background-color: #838384;
+    transform: scale(1.03);
+}
+
+body {
+    background-color: #3b4554;
+}
+
+.jumbotron {
+    text-shadow: 0 1px 3px black;
+    color: white;
+    font-family: Impact;
+    background-image: linear-gradient(rgba( 255, 255, 255, .3), rgba(255, 255, 255, .3)), url("/img/forest.png");
+    background-position: center;
+    background-size: cover;
+}
+
+.individualAd {
+    position: absolute;
+    background-color: deepskyblue;
+    box-shadow: 0 .3em .5em black;
+    border-radius: 2em;
+    width: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translateY(-50%) translateX(-50%);
+}
+
+.viewAdHeading {
+    text-shadow: 0 3px 8px black;
+    color: white;
+    text-align: center;
+    font-size: 80px;
+    font-family: Impact;
+}

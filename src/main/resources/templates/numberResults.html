@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+</head>
+<body>
+    <div th:replace="fragments/navbar :: navbar"></div>
+    <div th:replace="fragments/header :: header"></div>
+    <h1>Your number is <span th:text="${userNumber}"></span></h1>
+    <h1>The random number is <span th:text="${randomNumber}"></span></h1>
+    <h1 th:if="${randomNumber == userNumber}">Your numbers match!</h1>
+    <h1 th:if="${randomNumber != userNumber}">Your numbers do not match!</h1>
+    <div th:replace="fragments/footer :: footer"></div>
+
+</body>
+</html>

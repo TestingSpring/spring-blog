@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <link th:replace="fragments/header :: stylingSheets" />
+</head>
+<body>
+<h1>hello world</h1>
+<form action="/posts/edit" th:method="post" th:object="${post}">
+    Title:
+    <input th:field="*{title}" type="text" />
+    <br />
+    body:
+    <input th:field="*{body}" type="text"/>
+    <br />
+    <input type="hidden" th:field="*{id}"/>
+    <input type="submit"/>
+</form>
+
+
+
+
+
+<div th:replace="fragments/bootstrap :: bootstrapScripts"></div>
+</body>
+</html>

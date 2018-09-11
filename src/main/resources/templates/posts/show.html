@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <link th:replace="fragments/header :: stylingSheets" />
+</head>
+<body>
+    <div th:replace="fragments/navbar :: mainNavbar"></div>
+    <h1 class="viewAdHeading">View An Ad!</h1>
+    <div align="center" class="individualAd">
+        <p>Title: <span th:text="${post.title}"></span></p>
+        <p>Title: <span th:text="${post.body}"></span></p>
+    </div>
+
+
+    <div th:replace="fragments/bootstrap :: bootstrapScripts"></div>
+</body>
+</html>
