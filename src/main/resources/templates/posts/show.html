@@ -11,6 +11,9 @@
     <div align="center" class="individualAd">
         <p>Title: <span th:text="${post.title}"></span></p>
         <p>Title: <span th:text="${post.body}"></span></p>
+        <p>Posted by <span th:text="${post.user.username}"></span></p>
+        <p>Email: <span th:text="${post.user.email}"></span></p>
+
     </div>
 
 

@@ -22,7 +22,9 @@
                         <p th:text="${post.body}"></p>
                         <button><a th:href="@{'/posts/' + ${post.id}}">view</a></button>
                         <button><a th:href="@{'/posts/' + ${post.id}} + '/edit'">Edit</a></button>
-                        <button><a th:href="@{'/posts/delete/' + ${post.id}}">Delete</a></button>
+                        <form th:action="@{/posts/delete}" th:method="post">
+                            <button th:value="${post.id}" th:name="id">Delete</button>
+                        </form>
                     </div>
                 </div>
 

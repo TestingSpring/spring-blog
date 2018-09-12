@@ -1,6 +1,7 @@
 package com.blog.blog;
 
 import com.blog.blog.models.Post;
+import com.blog.blog.repositories.UserRepo;
 import com.blog.blog.services.PostService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,12 +14,12 @@ import java.util.List;
 @Controller
 public class PostController {
     private final PostService postService;
+    private UserRepo userDao;
 
-    public PostController(PostService postService) {
+    public PostController(PostService postService, UserRepo userDao) {
         this.postService = postService;
+        this.userDao = userDao;
     }
-
-
 
     @GetMapping("/posts")
     public String getAllPost(Model model) {
@@ -44,6 +45,7 @@ public class PostController {
 
     @PostMapping("/posts/create")
     public String createPosts(@ModelAttribute Post post) {
+        post.setUser(userDao.findOne(1L));
         postService.save(post);
         return "redirect:/posts";
     }
@@ -55,6 +57,7 @@ public class PostController {
         return "posts/edit";
     }
 
+
     @PostMapping("/posts/edit")
     public String executeEditPosts(@ModelAttribute Post post) {
         postService.save(post);
@@ -63,8 +66,8 @@ public class PostController {
 
 
 
-    @GetMapping("/posts/delete/{id}")
-    public String deletePosts(@PathVariable long id) {
+    @PostMapping("/posts/delete")
+    public String deletePosts(@RequestParam(name = "id") long id) {
         postService.deletePost(id);
         return "redirect:/posts";
     }
